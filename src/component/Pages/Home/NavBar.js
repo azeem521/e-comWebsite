@@ -1,6 +1,7 @@
 
 import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
+import Cart from '../../Cart/Cart'
 import './NavBar.css'
 
 
@@ -16,9 +17,10 @@ const NavBar = () => {
         <NavLink className='nav-sub-com' to='/login'>
             <button type="button" className="btn btn-primary login-btn">Login</button>
         </NavLink>
-        <NavLink to='/cart'>
-            <button type="button" className="btn btn-primary cart-btn">Cart</button>
-        </NavLink>
+        {/* <NavLink to='/cart'> */}
+            <Cart />
+            {/* <button type="button" className="btn btn-primary cart-btn">Cart</button> */}
+        {/* </NavLink> */}
         <p className='cart-item-no'>12</p>
         </div>
     </div>
