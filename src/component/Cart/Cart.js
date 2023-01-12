@@ -90,7 +90,7 @@ function Cart() {
                 </div>
             </div>
             <div className='cart-item-second'>
-            {item.price}
+            ${item.price}
             </div>
             <div className='cart-item-third'>
             <div className='cart-item-third-qty'>
@@ -108,12 +108,17 @@ function Cart() {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <div className='cart-footer'>
+          <Button variant="primary" >
+          PURCHASE
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <div className='cart-total-div'>
+           Total ${ctx.totalAmount}
+          </div>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
+          </div>
         </Modal.Footer>
       </Modal>
     </div>

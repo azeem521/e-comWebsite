@@ -64,7 +64,7 @@ const Store = (props) => {
            price:price,
            imageUrl:img,
            id:i,
-            qty:2
+            qty:1
           })
           console.log('ctx',ctx,title,price,i);
         };
