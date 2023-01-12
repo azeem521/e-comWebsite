@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react'
 import './About.css'
-import Header from '../../Header';
 
 
 const About = () => {
   return (
     <Fragment>
-       <Header />
        <div className='about-main-div'>
         <div className='about-heading'>
         About

@@ -8,6 +8,8 @@ import Store from './component/Pages/Store/Store';
 import About from './component/Pages/About/About';
 import Cart from './component/Cart/Cart';
 import ContextProvider from './component/conrext-store/ContextProvider';
+import Footer from './component/Footer';
+import  Header from './component/Header'
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
     <div>
       <ContextProvider>
        <NavBar />
+       <Header />
     <Routes>
       <Route path="/" element={ <Home/> } />
       <Route path='/store' element={<Store />} />
@@ -24,6 +27,7 @@ function App() {
       {/* <Route path='/cart' element={<Cart />} /> */}
      
     </Routes>
+    <Footer />
     
     </ContextProvider>
   </div>
