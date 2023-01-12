@@ -7,10 +7,15 @@ import NavBar from './component/Pages/Home/NavBar';
 import Store from './component/Pages/Store/Store';
 import About from './component/Pages/About/About';
 import Cart from './component/Cart/Cart';
+import ContextProvider from './component/conrext-store/ContextProvider';
 
 function App() {
+
+  
+
   return (
     <div>
+      <ContextProvider>
        <NavBar />
     <Routes>
       <Route path="/" element={ <Home/> } />
@@ -20,7 +25,7 @@ function App() {
      
     </Routes>
     
-
+    </ContextProvider>
   </div>
   );
 }

@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import cartContext from '../../conrext-store/contextAPI';
 import './Store.css'
 
-const Store = () => {
+const Store = (props) => {
+  const ctx=useContext(cartContext);
+
 
     const productsArr = [
 
@@ -49,7 +52,22 @@ const Store = () => {
         
         }
         
-        ]
+        ];
+
+     
+
+     
+
+        const addToCartHandler=(title,price,img,i)=>{
+          ctx.addToCart({
+           title:title,
+           price:price,
+           imageUrl:img,
+           id:i,
+            qty:2
+          })
+          console.log('ctx',ctx,title,price,i);
+        };
 
   return (
     <Fragment>
@@ -62,19 +80,19 @@ const Store = () => {
 
             <Row xs={1} md={2} className="g-4">
       {productsArr.map((item, idx) => (
-        <Col className='store-cards-row'>
+        // key=idx,
+        <Col className='store-cards-row' key={idx +Math.random()}>
 
 {/* <div className='store-card-div'> */}
         <Card.Title className='store-card-title'>{item.title}</Card.Title>
           <Card>
             <Card.Img variant="top" src={item.imageUrl} />
             <Card.Body>
-              {/* <Card.Title>Card title</Card.Title> */}
               <Card.Text className='store-card-description'>
                <div>${item.price}</div>
                <div>
                
-               <Button variant="primary">ADD TO CART</Button>
+               <Button variant="primary" onClick={addToCartHandler.bind(null,item.title,item.price,item.imageUrl, idx)}>ADD TO CART</Button>
 
                </div>
               </Card.Text>

@@ -1,11 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import cartContext from '../conrext-store/contextAPI';
 import './Cart.css';
 
 function Cart() {
   const [show, setShow] = useState(false);
+  const ctx=useContext(cartContext)
 
   const cartElements = [
 
@@ -45,7 +47,9 @@ function Cart() {
     
     }
     
-    ]
+    ];
+
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -75,8 +79,8 @@ function Cart() {
                 </div>
           </div>
         {
-          cartElements.map((item)=>(
-            <div className='cart-item-div'>
+          ctx.items.map((item)=>(
+            <div className='cart-item-div' key={item.id}>
                 <div className='cart-item-first'>
                 <div className='cart-item-first-img'>
                     <img src={item.imageUrl} />
@@ -90,7 +94,7 @@ function Cart() {
             </div>
             <div className='cart-item-third'>
             <div className='cart-item-third-qty'>
-                {item.quantity}
+                {item.qty}
             </div>
            <Button variant='primary' className='cart-remove-btn'>Remove</Button>
 
