@@ -10,12 +10,10 @@ const NavBar = () => {
 
     const ctx=useContext(cartContext);
 
-    // const loginHandler
+   
 
     const logoutHandler=()=>{
-        console.log(ctx);
         ctx.logout();
-        console.log(ctx);
     }
 
   return (
