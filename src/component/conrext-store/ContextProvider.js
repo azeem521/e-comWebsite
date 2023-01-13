@@ -1,6 +1,6 @@
 
 
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import cartContext from './contextAPI';
 import reducerFunction from './Reducer';
 
@@ -12,6 +12,7 @@ const defaultState={
 const ContextProvider = (props) => {
 
     const [cartState,dispatchAction]=useReducer(reducerFunction,defaultState);
+    const [token,setToken]=useState(null);
 
     const addToCartHandler =(item)=>{
         dispatchAction({type:'ADD',item:item})
@@ -21,11 +22,25 @@ const ContextProvider = (props) => {
         dispatchAction({type:'REMOVE',id:id})
     }
 
+    const loginHandler =(token)=>{
+        setToken(token)
+    };
+
+    const logoutHandler =()=>{
+        setToken(null);
+    }
+
+    const userIsLoggedIn=!!token;
+
     const ContextValue={
         items:cartState.items,
         totalAmount:cartState.totalAmount,
         addToCart:addToCartHandler,
-        removeFromCart:removeFromCartHandler
+        removeFromCart:removeFromCartHandler,
+        token:token,
+        isLoggedIn:userIsLoggedIn,
+        login:loginHandler,
+        logout:logoutHandler
     }
 
   return (

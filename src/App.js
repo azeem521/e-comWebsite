@@ -10,6 +10,7 @@ import Cart from './component/Cart/Cart';
 import ContextProvider from './component/conrext-store/ContextProvider';
 import Footer from './component/Footer';
 import  Header from './component/Header'
+import Authentication from './component/Authentication/Authentication';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       <Route path="/" element={ <Home/> } />
       <Route path='/store' element={<Store />} />
       <Route path='/about' element={<About />} />
-      {/* <Route path='/cart' element={<Cart />} /> */}
+      <Route path='/login' element={<Authentication />} />
      
     </Routes>
     <Footer />
