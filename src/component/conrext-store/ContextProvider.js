@@ -12,7 +12,8 @@ const defaultState={
 const ContextProvider = (props) => {
 
     const [cartState,dispatchAction]=useReducer(reducerFunction,defaultState);
-    const [token,setToken]=useState(null);
+    const initialToken=localStorage.getItem('token');
+    const [token,setToken]=useState(initialToken);
 
     const addToCartHandler =(item)=>{
         dispatchAction({type:'ADD',item:item})
@@ -24,9 +25,11 @@ const ContextProvider = (props) => {
 
     const loginHandler =(token)=>{
         setToken(token)
+        localStorage.setItem('token',token);
     };
 
     const logoutHandler =()=>{
+        localStorage.removeItem('token');
         setToken(null);
     }
 

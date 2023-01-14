@@ -1,6 +1,4 @@
 
-
-
 import Home from './component/Pages/Home/Home';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import NavBar from './component/Pages/Home/NavBar';
@@ -12,6 +10,7 @@ import  Header from './component/Header'
 import Authentication from './component/Authentication/Authentication';
 import { Fragment, useContext } from 'react';
 import cartContext from './component/conrext-store/contextAPI';
+import SingleProduct from './component/Pages/SingleProduct/SingleProduct';
 
 function App() {
 
@@ -31,6 +30,7 @@ function App() {
     
       <Route path='/about' element={<About />} />
       <Route path='/login' element={!ctx.isLoggedIn ? <Authentication /> : <Store />} />
+      <Route path='/singleproduct/:id' element={<SingleProduct />} />
      
     </Routes>
     <Footer />
