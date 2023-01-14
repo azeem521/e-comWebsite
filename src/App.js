@@ -11,6 +11,7 @@ import Authentication from './component/Authentication/Authentication';
 import { Fragment, useContext } from 'react';
 import cartContext from './component/conrext-store/contextAPI';
 import SingleProduct from './component/Pages/SingleProduct/SingleProduct';
+import Contact from './component/Pages/ContactUs/Contact';
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
       <Route path='/about' element={<About />} />
       <Route path='/login' element={!ctx.isLoggedIn ? <Authentication /> : <Store />} />
       <Route path='/singleproduct/:id' element={<SingleProduct />} />
+      <Route path='/contact' element={ctx.isLoggedIn ? <Contact /> : <Authentication />} />
+      <Route path='*' element={<Home />} />
      
     </Routes>
     <Footer />

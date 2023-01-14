@@ -14,8 +14,8 @@ const Home = () => {
         </div>
         <div className="main-playBtn">
           <div className="playBtn">
-            <div class="play-button-outer">
-              <div class="play-button"></div>
+            <div className="play-button-outer">
+              <div className="play-button"></div>
             </div>
           </div>
         </div>

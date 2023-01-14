@@ -56,7 +56,6 @@ const SingleProduct = () => {
 
         const snglprdct=productsArr.filter((item)=>item.id===id);
 
-        const imgUrl=snglprdct.imageUrl
 
   return (
     <Fragment>
@@ -82,7 +81,7 @@ const SingleProduct = () => {
                     </div>
                     <div className='single-right'>
                         <div className='single-title'>Title : {e.title}</div>
-                        <div className='single-mrp'>MRP : $<del>{e.price +999}</del></div>
+                        <div className='single-mrp'>MRP : $<del>{e.price +199}</del></div>
                         <div className='single-price'>Price : ${e.price}</div>
                         <div className='single-desc'>Description : Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows, hates no prosecutors will unfold in the enduring of which were born</div>
                     </div>
