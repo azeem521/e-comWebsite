@@ -2,16 +2,21 @@
 import Home from './component/Pages/Home/Home';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import NavBar from './component/Pages/Home/NavBar';
-import Store from './component/Pages/Store/Store';
+// import Store from './component/Pages/Store/Store';
 import About from './component/Pages/About/About';
 import ContextProvider from './component/conrext-store/ContextProvider';
 import Footer from './component/Footer';
 import  Header from './component/Header'
 import Authentication from './component/Authentication/Authentication';
-import { Fragment, useContext } from 'react';
+import React, { Fragment, Suspense, useContext } from 'react';
 import cartContext from './component/conrext-store/contextAPI';
-import SingleProduct from './component/Pages/SingleProduct/SingleProduct';
-import Contact from './component/Pages/ContactUs/Contact';
+// import SingleProduct from './component/Pages/SingleProduct/SingleProduct';
+// import Contact from './component/Pages/ContactUs/Contact';
+
+
+const Contact =React.lazy(()=>import('./component/Pages/ContactUs/Contact'));
+const Store =React.lazy(()=>import('./component/Pages/Store/Store'));
+const SingleProduct=React.lazy(()=>import('./component/Pages/SingleProduct/SingleProduct'));
 
 function App() {
 
@@ -21,6 +26,7 @@ function App() {
 
   return (
     <Fragment>
+      <Suspense fallback={<div style={{"position":"fixed" , "top":"50%"}} className='text-center'>Loading...</div>}>
      
        <NavBar />
        <Header />
@@ -37,7 +43,7 @@ function App() {
      
     </Routes>
     <Footer />
-  
+    </Suspense>
   </Fragment>
   );
 }
