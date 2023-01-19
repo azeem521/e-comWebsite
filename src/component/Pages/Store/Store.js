@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
@@ -62,16 +62,22 @@ const Store = (props) => {
         ];
 
 
+        
+
         const addToCartHandler=(title,price,img,i)=>{
           ctx.addToCart({
            title:title,
            price:price,
            imageUrl:img,
            id:i,
-            qty:1
           })
-          console.log('ctx',ctx,title,price,i);
+          console.log(ctx.emailOfUser);
+          
         };
+
+        
+
+    
 
   return (
     <Fragment>

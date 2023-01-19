@@ -1,5 +1,5 @@
 
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Cart from '../../Cart/Cart'
 import cartContext from '../../conrext-store/contextAPI'
@@ -16,6 +16,13 @@ const NavBar = () => {
         ctx.logout();
     }
 
+    let NoItem;
+    NoItem=ctx.items.reduce((curr,item)=>curr+item.quantity
+    ,0);
+
+    
+    
+
   return (
    <Fragment>
     <div className='nav-main-div'>
@@ -30,12 +37,11 @@ const NavBar = () => {
         {ctx.isLoggedIn && <NavLink className='nav-sub-com' to='/login'>
             <button type="button" className="btn btn-primary login-btn" onClick={logoutHandler}>Logout</button>
         </NavLink>}
-        {/* <NavLink to='/cart'> */}
-            <Cart />
-            {/* <button type="button" className="btn btn-primary cart-btn">Cart</button> */}
-        {/* </NavLink> */}
+        
+           {ctx.isLoggedIn &&  <Cart />}
+            
         <p className='cart-item-no'>
-            {ctx.items.length}
+            {NoItem}
         </p>
         </div>
     </div>
